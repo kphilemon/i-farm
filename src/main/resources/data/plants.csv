@@ -1,0 +1,101 @@
+id,name,unit_type
+1,Desert rose,pack
+2,Lavender,mass
+3,Sage,mass
+4,Marigold,volume
+5,Mint,mass
+6,Rosemary,mass
+7,Thyme,mass
+8,Basil,volume
+9,Lilies,pack
+10,Tulips,mass
+11,Daffodils,mass
+12,Onion Plants,pack
+13,American Wisteria,volume
+14,Petunias,mass
+15,Lilac,mass
+16,Amaryllis,volume
+17,Geranium,volume
+18,Spider Plant,volume
+19,Snake Plant,mass
+20,Golden Pothos,volume
+21,Long Bean,pack
+22,Soybean,volume
+23,Mustard,pack
+24,Siberian Pine,pack
+25,Sunflower,volume
+26,Avocado,mass
+27,Rapeseed,pack
+28,Sesame,volume
+29,Castorbean,volume
+30,African Oil Palm,mass
+31,Argan,volume
+32,Walnut,pack
+33,Camelia,mass
+34,Cannbis,mass
+35,Flax,volume
+36,Corn,volume
+37,Peanut,volume
+38,Artichoke,volume
+39,Broccoli,pack
+40,Caper,mass
+41,Cauliflower,pack
+42,Squash Blossoms,pack
+43,Avocado,pack
+44,Bell Pepper,volume
+45,Breadfruit,mass
+46,Broad Bean,pack
+47,Chayote,mass
+48,Chickpea,volume
+49,Common Bean,pack
+50,Grean Bean,mass
+51,Cowpea,pack
+52,Cucumber,mass
+53,Eggplant,volume
+54,Gherkin,pack
+55,Husk Tomato,pack
+56,Lentil,pack
+57,Lima Bean,volume
+58,Loofah,mass
+59,Musk Cucumber,volume
+60,Pepper,mass
+61,Plantin,pack
+62,Pumpkin,mass
+63,Snake Gourd,volume
+64,Tomato,pack
+65,Big Bok Choy,mass
+66,Baby Bok Choy,mass
+67,Choy Sum,mass
+68,Kailan,pack
+69,Baby Spinach,mass
+70,Spinach,volume
+71,Kangkung,volume
+72,Red Coral Lettuce,pack
+73,Green Coral Lettuce,volume
+74,Iceberg Lettuce,volume
+75,Round Cabbage,volume
+76,Chinese Cabbage,pack
+77,Watercress,mass
+78,Butterhead Lettuce,mass
+79,Romaine Lettuce,volume
+80,Tarragon,mass
+81,French Bean,mass
+82,Sweet Peas,mass
+83,Snow Peas,mass
+84,Japanese Cucumber,mass
+85,Zucchini,volume
+86,White Radish,mass
+87,Celery,volume
+88,Spring Onion,mass
+89,Gradon Chives,mass
+90,Leek,mass
+91,Chilli,mass
+92,Pearl Brinjal,volume
+93,Long Brinjal,mass
+94,Round Brinjal,pack
+95,Beetroot,mass
+96,Red Cabbage,volume
+97,Raddichio Lettuce,mass
+98,Carrot,mass
+99,Potato,pack
+100,Paddy,volume
