@@ -1,7 +1,9 @@
 package com.example.ifarm;
 
+import com.example.ifarm.util.DatabaseSetup;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        DatabaseSetup.run();
     }
 }
