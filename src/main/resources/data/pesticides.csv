@@ -1,0 +1,101 @@
+id,name,unit_type
+1,Chlorfluazuron,volume
+2,Abamectin,volume
+3,Methamidophos,volume
+4,Cyhexatin,pack
+5,Chlorpyrifos,mass
+6,Novaluron,mass
+7,Bifenazat,pack
+8,Fenamiphos,pack
+9,Imidacloprid,pack
+10,Acctamiprid,mass
+11,Methyl-Parathion,volume
+12,Carbaryl,pack
+13,Prometryne,pack
+14,Bentazone,mass
+15,Oxyfluorfen,pack
+16,Metamitron,volume
+17,Oxadiazon,pack
+18,Pendimethalin,mass
+19,Bromacil,volume
+20,Alachlor,pack
+21,Atrazine,volume
+22,Terbutryne,volume
+23,Isoxathion,pack
+24,Propineb,volume
+25,Penconazole,mass
+26,Chlorothalonil,pack
+27,Tetraconazole,mass
+28,Sulphur,volume
+29,Triflooxystrobon,pack
+30,Mancozeb,pack
+31,Thiophanate methyl,volume
+32,Bromadiolne,volume
+33,Coumatetralyl,volume
+34,Metaldehyde,pack
+35,Methm Sodium,pack
+36,Methy bromide,volume
+37,Endosulfan,volume
+38,Acephate,pack
+39,Chloropy riphos,pack
+40,Dimethoate,pack
+41,Monocrotophos,volume
+42,Oxydemeton methyl,mass
+43,Profenofos,mass
+44,Quinalphos,volume
+45,Alphamethrin,mass
+46,Cypermethrin,volume
+47,Ethion,volume
+48,Dicofol,volume
+49,Propargite,volume
+50,Fenazaquin,pack
+51,Fenpropathrin,mass
+52,Azadirachtin,pack
+53,Azinphos Methyl,volume
+54,Aldicarb,mass
+55,Aldoxycarb,mass
+56,Aldrin,volume
+57,Aminocarb,volume
+58,Amitraz,pack
+59,Amitrol,mass
+60,Antu,volume
+61,Aramite,pack
+62,Arsenic compound,mass
+63,Mephospholan,mass
+64,Benomyl,pack
+65,Binapacryl,pack
+66,Bromethalin,mass
+67,Bromophos,pack
+68,Butoxycarboxim,volume
+69,Cadmium compound,mass
+70,Cadisafos,pack
+71,Calcium arsenate,mass
+72,Calcium cyanide,pack
+73,Camphechlor,pack
+74,Captafol,volume
+75,Captan,mass
+76,Carbontetrachloride,mass
+77,Carbophenothion,volume
+78,Chlordane,volume
+79,Chlordecone,volume
+80,Chlordimeform,mass
+81,Chlorethoxyfos,pack
+82,Chlorophenols,volume
+83,Chlormephos,mass
+84,Chlorbenzilate,pack
+85,Chlorophacinone,mass
+86,Coumaphos,pack
+87,Crimidine,mass
+88,Crotoxyphos,mass
+89,Cyanthoate,pack
+90,Cycloheximide,pack
+91,Daminozide,mass
+92,Diamidafos,volume
+93,Dieldrin,mass
+94,Dinoseb,volume
+95,Dinoterb,mass
+96,Edifenphose,volume
+97,Endothion,volume
+98,Ethoprop,volume
+99,Lindane,mass
+100,Heptachlor,pack
