@@ -48,7 +48,8 @@ public class QueueLogger implements Logger {
 
     @Override
     public void shutdown() throws IOException, InterruptedException {
-        // wait for all tasks to complete before closing the writer
+        // wait "forever" until all tasks are completed before closing the writer
+        // https://stackoverflow.com/questions/1250643/how-to-wait-for-all-threads-to-finish-using-executorservice/1250655#comment52439407_1250655
         executor.shutdown();
         executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         out.close();
