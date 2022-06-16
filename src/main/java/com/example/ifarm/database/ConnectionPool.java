@@ -67,6 +67,15 @@ public class ConnectionPool {
         }
     }
 
+    // Only call this method when you no longer need this connection pool and have released all connections
+    public void shutdown() throws SQLException {
+        synchronized (this) {
+            for (Connection connection : pool) {
+                connection.close();
+            }
+        }
+    }
+
     private Connection createConnection() throws SQLException {
         try {
             return DriverManager.getConnection(connectionUrl, user, password);
