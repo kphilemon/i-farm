@@ -71,7 +71,9 @@ public class ConnectionPool {
     public void shutdown() throws SQLException {
         synchronized (this) {
             for (Connection connection : pool) {
-                connection.close();
+                if (connection != null) {
+                    connection.close();
+                }
             }
         }
     }
