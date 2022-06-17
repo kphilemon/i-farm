@@ -2,6 +2,7 @@ package com.example.ifarm;
 
 import com.example.ifarm.app.IFarm;
 import com.example.ifarm.app.IFarmService;
+import com.example.ifarm.database.ConnectionPool;
 import com.example.ifarm.farmersimulator.Farmer;
 import com.example.ifarm.farmersimulator.FarmerSimulator;
 import com.example.ifarm.timer.Timer;
@@ -15,6 +16,7 @@ public class Main {
     private static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/ifarm";
     private static final String USER = "root";
     private static final String PASSWORD = "";
+    private static final int MAX_CONNECTIONS = 151;
     private static final int NUMBER_OF_FARMERS = 100;
     private static final int ACTIVITIES_PER_FARM = 1000;
 
@@ -22,17 +24,20 @@ public class Main {
         // Reset database
         DatabaseUtils.resetDatabase(CONNECTION_URL, USER, PASSWORD);
 
+        // Setup connection pool
+        ConnectionPool connectionPool = new ConnectionPool(CONNECTION_URL, USER, PASSWORD, MAX_CONNECTIONS);
+
         // Generate dummy data
-        DummyDataGenerator dummyDataGenerator = new DummyDataGenerator(CONNECTION_URL, USER, PASSWORD);
+        DummyDataGenerator dummyDataGenerator = new DummyDataGenerator(connectionPool);
         dummyDataGenerator.generate();
         System.out.println("Dummy data ready.");
 
         // Instantiate ifarm service
-        IFarmService iFarmService = new IFarm(CONNECTION_URL, USER, PASSWORD);
+        IFarmService iFarmService = new IFarm(connectionPool);
         System.out.println("iFarm service ready.");
 
         // Simulate farmer threads
-        FarmerSimulator farmerSimulator = new FarmerSimulator(iFarmService, ACTIVITIES_PER_FARM, CONNECTION_URL, USER, PASSWORD);
+        FarmerSimulator farmerSimulator = new FarmerSimulator(iFarmService, ACTIVITIES_PER_FARM, connectionPool);
         Farmer[] farmers = farmerSimulator.generateFarmers(NUMBER_OF_FARMERS);
 
         Timer timer = new Timer();
@@ -52,5 +57,7 @@ public class Main {
         timer.stop();
         System.out.println("Total time taken to process all activities concurrently: " + timer.getMillisecondsElapsed() + "ms");
         System.out.println("==================================================\n");
+
+        connectionPool.shutdown();
     }
 }

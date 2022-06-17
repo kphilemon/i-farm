@@ -11,30 +11,25 @@ import com.example.ifarm.dto.Pesticide;
 import com.example.ifarm.dto.Plant;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DummyDataGenerator {
-    private final String connectionUrl;
-    private final String user;
-    private final String password;
+    private final ConnectionPool connectionPool;
 
-    public DummyDataGenerator(String connectionUrl, String user, String password) {
-        this.connectionUrl = connectionUrl;
-        this.user = user;
-        this.password = password;
+    public DummyDataGenerator(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
 
-    public void generate() throws SQLException {
-        ConnectionPool connectionPool = new ConnectionPool(connectionUrl, user, password);
+    public void generate() {
         generatePlantsData(connectionPool);
         generateFertilizersData(connectionPool);
         generatePesticidesData(connectionPool);
         generateFarmsData(connectionPool);
-        connectionPool.shutdown();
     }
 
     private void generatePlantsData(ConnectionPool connectionPool) {

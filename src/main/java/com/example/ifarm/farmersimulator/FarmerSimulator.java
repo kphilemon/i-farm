@@ -18,21 +18,16 @@ import java.util.stream.IntStream;
 public class FarmerSimulator implements FarmerSimulatorInterface {
     private final IFarmService iFarmService;
     private final int activitiesPerFarm;
-    private final String connectionUrl;
-    private final String user;
-    private final String password;
+    private final ConnectionPool connectionPool;
 
-    public FarmerSimulator(IFarmService iFarmService, int activitiesPerFarm, String connectionUrl, String user, String password) {
+    public FarmerSimulator(IFarmService iFarmService, int activitiesPerFarm, ConnectionPool connectionPool) {
         this.iFarmService = iFarmService;
         this.activitiesPerFarm = activitiesPerFarm;
-        this.connectionUrl = connectionUrl;
-        this.user = user;
-        this.password = password;
+        this.connectionPool = connectionPool;
     }
 
     @Override
     public Farmer[] generateFarmers(int numberOfFarmers) {
-        ConnectionPool connectionPool = new ConnectionPool(connectionUrl, user, password);
         UserDAO userDAO = new UserDAO(connectionPool);
         FarmDAO farmDAO = new FarmDAO(connectionPool);
 
@@ -54,12 +49,6 @@ public class FarmerSimulator implements FarmerSimulatorInterface {
             }
 
             farmers[i] = new Farmer(iFarmService, activitiesPerFarm, id, getFarms(farmDAO, farmIds));
-        }
-
-        try {
-            connectionPool.shutdown();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         return farmers;

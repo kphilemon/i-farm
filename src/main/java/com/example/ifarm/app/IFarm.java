@@ -13,15 +13,13 @@ import java.sql.SQLException;
 import java.util.concurrent.*;
 
 public class IFarm implements IFarmService {
-    private final ConnectionPool connectionPool;
     private final DAO dao;
     private final Logger requestLogger;
     private final Logger activityLogger;
     private final Counter activityCounter;
     private final ExecutorService executor;
 
-    public IFarm(String connectionUrl, String user, String password) throws IOException {
-        connectionPool = new ConnectionPool(connectionUrl, user, password);
+    public IFarm(ConnectionPool connectionPool) throws IOException {
         dao = new DAO(connectionPool);
         requestLogger = new QueueLogger("logs/ifarm-requests.log");
         activityLogger = new QueueLogger("logs/ifarm-activities.log");
@@ -50,7 +48,6 @@ public class IFarm implements IFarmService {
         // https://stackoverflow.com/questions/1250643/how-to-wait-for-all-threads-to-finish-using-executorservice/1250655#comment52439407_1250655
         executor.shutdown();
         executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        connectionPool.shutdown();
         requestLogger.shutdown();
         activityLogger.shutdown();
     }
