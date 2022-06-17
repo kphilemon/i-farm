@@ -8,6 +8,7 @@ import com.example.ifarm.farmersimulator.FarmerSimulator;
 import com.example.ifarm.timer.Timer;
 import com.example.ifarm.util.DatabaseUtils;
 import com.example.ifarm.util.DummyDataGenerator;
+import com.example.ifarm.datavisualizer.DataVisualizer;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -53,11 +54,14 @@ public class Main {
         }
         // shuts the service down
         iFarmService.shutdown();
+        connectionPool.shutdown();
 
         timer.stop();
         System.out.println("Total time taken to process all activities concurrently: " + timer.getMillisecondsElapsed() + "ms");
-        System.out.println("==================================================\n");
+        System.out.println("=================================================================\n");
 
-        connectionPool.shutdown();
+        // run data visualizer
+        DataVisualizer dataVisualizer = new DataVisualizer(CONNECTION_URL, USER, PASSWORD);
+        dataVisualizer.run();
     }
 }
