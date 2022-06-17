@@ -39,13 +39,15 @@ public class DataHelper {
 
 
     public static void displayActivityLog(String sqlQuery, String connectionUrl, String user, String password, Boolean getSummary) {
-        System.out.println("Activity logs: ");
-        String selectTargetFarmActivity = sqlQuery;
+        int numberOfRow = 0;
         try (Connection conn = DriverManager.getConnection(connectionUrl, user, password);
-             PreparedStatement ps = conn.prepareStatement(selectTargetFarmActivity);
-
-             ResultSet rs = ps.executeQuery()) {
+             PreparedStatement ps = conn.prepareStatement(sqlQuery);
+             ResultSet rs = ps.executeQuery()
+        ) {
             while (rs.next()) {
+                if (numberOfRow == 0)
+                    System.out.println("Activity logs: ");
+                numberOfRow++;
                 String action = rs.getString("action");
                 String type = rs.getString("type");
                 Integer field = rs.getInt("field");
@@ -66,6 +68,9 @@ public class DataHelper {
                         System.out.printf("%s %s Field %s Row %s %s %s \n", action, type, field, row, quantity, unit);
                     }
                 }
+            }
+            if (numberOfRow == 0) {
+                System.out.println("No data found!");
             }
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
