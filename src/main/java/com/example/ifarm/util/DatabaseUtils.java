@@ -11,12 +11,12 @@ public class DatabaseUtils {
         clearTable(connectionUrl, user, password, "farm_fertilizer");
         clearTable(connectionUrl, user, password, "farm_pesticide");
         clearTable(connectionUrl, user, password, "user_farm");
+        clearTable(connectionUrl, user, password, "activity");
         clearTable(connectionUrl, user, password, "farm");
         clearTable(connectionUrl, user, password, "plant");
         clearTable(connectionUrl, user, password, "fertilizer");
         clearTable(connectionUrl, user, password, "pesticide");
         clearTable(connectionUrl, user, password, "user");
-        clearTable(connectionUrl, user, password, "activity");
     }
 
     public static void clearTable(String connectionUrl, String user, String password, String tableName) throws SQLException {

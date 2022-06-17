@@ -1,5 +1,6 @@
 package com.example.ifarm.farmersimulator;
 
+import com.example.ifarm.app.IFarmService;
 import com.example.ifarm.dao.FarmDAO;
 import com.example.ifarm.dao.UserDAO;
 import com.example.ifarm.database.ConnectionPool;
@@ -15,12 +16,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FarmerSimulator implements FarmerSimulatorInterface {
+    private final IFarmService iFarmService;
     private final int activitiesPerFarm;
     private final String connectionUrl;
     private final String user;
     private final String password;
 
-    public FarmerSimulator(int activitiesPerFarm, String connectionUrl, String user, String password) {
+    public FarmerSimulator(IFarmService iFarmService, int activitiesPerFarm, String connectionUrl, String user, String password) {
+        this.iFarmService = iFarmService;
         this.activitiesPerFarm = activitiesPerFarm;
         this.connectionUrl = connectionUrl;
         this.user = user;
@@ -50,7 +53,7 @@ public class FarmerSimulator implements FarmerSimulatorInterface {
                 System.out.println("failed to create farmer with id " + id);
             }
 
-            farmers[i] = new Farmer(activitiesPerFarm, id, getFarms(farmDAO, farmIds));
+            farmers[i] = new Farmer(iFarmService, activitiesPerFarm, id, getFarms(farmDAO, farmIds));
         }
 
         try {

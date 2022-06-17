@@ -64,4 +64,19 @@ public class Activity {
     public Integer getRow() {
         return row;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Activity [id=%s, farmId=%s, userId=%s, date=%s, action=%s, type=%s, unit=%s, quantity=%f, field=%d, row=%d]",
+                id,
+                farmId,
+                userId,
+                date,
+                action,
+                type,
+                unit,
+                quantity,
+                field,
+                row);
+    }
 }
