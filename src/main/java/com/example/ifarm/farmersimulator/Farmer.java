@@ -25,7 +25,8 @@ public class Farmer extends Thread {
 
     @Override
     public void run() {
-        System.out.println("farmer " + userId + " started!");
+        int totalActivities = farms.size() * activitiesPerFarm;
+        System.out.println("farmer " + userId + " starts to generate " + totalActivities + " activities!");
         for (Farm farm : farms) {
             for (int i = 0; i < activitiesPerFarm; i++) {
                 LogActivityRequest request = generateRandomActivity(farm);
